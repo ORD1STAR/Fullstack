@@ -1,7 +1,7 @@
 function removeElement(array, element){ // remove element from array
     for(var i=0; i<array.length; i++){  //parcourir la liste
         if(array[i]==element){ 
-            for(var j=i; j<(array.length-1); j++) array[j] = array[j+1] //decalage
+            for(var j=i; j<(array.length-1); j++) array[j] = array[j+1]; //decalage
             array.length--; 
         }
     }
@@ -9,9 +9,16 @@ function removeElement(array, element){ // remove element from array
 function removeIndex(array, index){ // remove index from array
     for(var i=0; i<array.length; i++){  //parcourir la liste
         if(i == index){ 
-            for(var j=i; j<(array.length-1); j++) array[j] = array[j+1] //decalage
+            for(var j=i; j<(array.length-1); j++) array[j] = array[j+1]; //decalage
             array.length--; 
         }
+    }
+}
+function removeDuplicates(array){ // remove duplicates from array
+    var ancien = null;
+    for(var i=0; i<array.length; i++){
+        if(ancien == array[i]) removeIndex(array, i);
+        ancien = array[i];
     }
 }
 function sortArray(array){ //sort array
@@ -26,13 +33,7 @@ function sortArray(array){ //sort array
         }
     }
 }
-function removeDuplicates(array){ // remove duplicates from array
-    var ancien = null;
-    for(var i=0; i<array.length; i++){
-        if(ancien == array[i]) removeIndex(array, i);
-        ancien = array[i];
-    }
-}
+
 
 
 console.log("Remove the element 4 from the array");
@@ -52,7 +53,7 @@ removeIndex(liste2, 2);
 console.log(liste2);  // [ 1, 2, 'test', 4, 'element' ]
 console.log("\n");
 
-console.log("Remove supplicated elements");
+console.log("Remove dupplicated elements");
 liste3 = [-3, 8, 2, 7, 6, -3, 5, -4, 3, 2, 1, 7];
 sortArray(liste3);
 console.log(liste3);  // [ -4, -3, -3, 1, 2, 2, 3, 5, 6, 7, 7,  8 ]
